@@ -33,6 +33,7 @@ export default function DndTodo({ todo, onToggle, onDelete }) {
                     fontSize: '22px',
                     color: '#9E78CF',
                 }}
+                data-testid="delete-icon"
             />
         </StyledTodo>
     )

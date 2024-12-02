@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1733145179065" clover="3.2.0">
+  <project timestamp="1733145179065" name="All files">
+    <metrics statements="36" coveredstatements="25" conditionals="10" coveredconditionals="7" methods="16" coveredmethods="8" elements="62" coveredelements="40" complexity="0" loc="36" ncloc="36" packages="2" files="6" classes="6"/>
+    <package name="components">
+      <metrics statements="26" coveredstatements="19" conditionals="8" coveredconditionals="5" methods="10" coveredmethods="6"/>
+      <file name="DndTodo.jsx" path="/Users/robert/own_projects/todo-test/todo-front/src/components/DndTodo.jsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+      </file>
+      <file name="Separator.jsx" path="/Users/robert/own_projects/todo-test/todo-front/src/components/Separator.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+      <file name="StyledTodo.js" path="/Users/robert/own_projects/todo-test/todo-front/src/components/StyledTodo.js">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="5" type="cond" truecount="1" falsecount="1"/>
+      </file>
+      <file name="TodoForm.jsx" path="/Users/robert/own_projects/todo-test/todo-front/src/components/TodoForm.jsx">
+        <metrics statements="19" coveredstatements="12" conditionals="4" coveredconditionals="2" methods="7" coveredmethods="3"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="22" count="6" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="26" count="6" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="30" count="6" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="41" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="state">
+      <metrics statements="10" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="2"/>
+      <file name="store.js" path="/Users/robert/own_projects/todo-test/todo-front/src/state/store.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+      </file>
+      <file name="todosApi.js" path="/Users/robert/own_projects/todo-test/todo-front/src/state/todosApi.js">
+        <metrics statements="8" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="1"/>
+        <line num="3" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
