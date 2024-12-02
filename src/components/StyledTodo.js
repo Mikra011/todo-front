@@ -6,6 +6,7 @@ const StyledTodo = styled.li`
   text-decoration: ${(pr) => (pr.$complete ? 'line-through' : 'initial')};
   cursor: pointer;
   transition: transform 150ms ease;
+  touch-action: none;
 
   div {
     display: flex;
@@ -17,9 +18,7 @@ const StyledTodo = styled.li`
     margin-left: 10px;
     font-size: 18px;
     font-family: Inter;
-    font-weight: 500;
-
-    
+    font-weight: 500;    
   }
 `
 
