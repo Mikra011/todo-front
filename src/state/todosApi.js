@@ -1,8 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+const baseUrl = import.meta.env.VITE_BASE_URL || 'http://localhost:9000/api/'
+
 export const todosApi = createApi({
     reducerPath: 'todoApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:9000/api/' }),
+    baseQuery: fetchBaseQuery({ baseUrl }),
     tagTypes: ['Tasks'],
     endpoints: build => ({
         getTodos: build.query({
