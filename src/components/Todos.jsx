@@ -17,43 +17,48 @@ import {
 import DndTodo from './DndTodo';
 
 export default function Todos() {
-  const { data: todos = [], isLoading, isFetching } = useGetTodosQuery()
-  const [toggleTodo, { isLoading: todoIsToggling }] = useToggleTodoMutation()
-  const [deleteTodo, { isLoading: isDeleting }] = useDeleteTodoMutation()
-  const [sortedTodos, setSortedTodos] = useState(todos)
+  const { data: todos = [], isLoading, isFetching } = useGetTodosQuery();
+  const [toggleTodo, { isLoading: todoIsToggling }] = useToggleTodoMutation();
+  const [deleteTodo, { isLoading: isDeleting }] = useDeleteTodoMutation();
+  const [sortedTodos, setSortedTodos] = useState([]);
 
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates,
     })
-  )
+  );
 
+  // Synchronize only when todos change, but preserve the current order if possible
   useEffect(() => {
     if (todos.length > 0) {
-      setSortedTodos(todos)
+      setSortedTodos((prevSorted) => {
+        // Maintain order from sortedTodos if possible, otherwise fallback to API order
+        const idOrderMap = prevSorted.map((t) => t.id);
+        return todos
+          .slice() // Clone todos array
+          .sort((a, b) => idOrderMap.indexOf(a.id) - idOrderMap.indexOf(b.id));
+      });
     }
-  }, [todos])
+  }, [todos]);
 
   const handleDragEnd = (event) => {
-    const { active, over } = event
+    const { active, over } = event;
 
-    if (!over || active.id === over.id) return
+    if (!over || active.id === over.id) return;
 
     setSortedTodos((prev) =>
-      arrayMove(prev, prev.findIndex((todo) => todo.id === active.id), prev.findIndex((todo) => todo.id === over.id))
-    )
-  }
+      arrayMove(
+        prev,
+        prev.findIndex((todo) => todo.id === active.id),
+        prev.findIndex((todo) => todo.id === over.id)
+      )
+    );
+  };
 
   return (
     <div id="todos">
-      {/* 
-      Otionally spinners could be displayed here or anywhere else
-      <h3> 
-        {todoIsToggling || isFetching ? 'Refreshing...' : ''}
-        {isDeleting ? 'Deleting tasks...' : ''}
-      </h3> 
-      */}
+      {/* Optionally spinners */}
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}
@@ -66,12 +71,12 @@ export default function Todos() {
             <SortableContext items={sortedTodos} strategy={verticalListSortingStrategy}>
               {sortedTodos.map((todo) => {
                 const onToggle = () =>
-                  toggleTodo({ id: todo.id, todo: { complete: !todo.complete } })
+                  toggleTodo({ id: todo.id, todo: { complete: !todo.complete } });
                 const onDelete = () => {
                   deleteTodo({ id: todo.id }).then(() => {
-                    setSortedTodos((prev) => prev.filter((t) => t.id !== todo.id))
-                  })
-                }
+                    setSortedTodos((prev) => prev.filter((t) => t.id !== todo.id));
+                  });
+                };
                 return (
                   <DndTodo
                     key={todo.id}
@@ -79,12 +84,12 @@ export default function Todos() {
                     onToggle={onToggle}
                     onDelete={onDelete}
                   />
-                )
+                );
               })}
             </SortableContext>
           )}
         </ul>
       </DndContext>
     </div>
-  )
+  );
 }

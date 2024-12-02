@@ -116,3 +116,29 @@ li {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+@media (max-width: 480px) {
+    h3 {
+        font-size: 50px;
+    }
+
+    .submitBtn input {
+        height: 48px;
+        width: 48px;
+    }
+
+    #todoForm,
+    #todos {
+        width: 300px;
+    }
+
+    input[name="todoLabel"],
+    .formInput,
+    #todoForm label span {
+        font-size: 14px;
+    }
+
+    #mp {
+        padding: 2rem;
+    } 
+}

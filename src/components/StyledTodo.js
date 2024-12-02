@@ -18,6 +18,8 @@ const StyledTodo = styled.li`
     font-size: 18px;
     font-family: Inter;
     font-weight: 500;
+
+    
   }
 `
 
