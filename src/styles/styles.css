@@ -1,0 +1,118 @@
+#root,
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+h1 {
+    color: #000000;
+}
+
+#root {
+    width: 100%;
+    overflow-y: auto;
+    border-top: 1px solid grey;
+}
+
+#todoForm {
+    display: flex;
+    flex-direction: row;
+    width: 377px;
+    height: 103px;
+    position: relative;
+    margin-bottom: 32px;
+}
+
+#todoForm label span {
+    font-weight: 800;
+    font-size: 16px;
+    font-family: Inter;
+    color: #575767;
+    height: 19px;
+}
+
+input[name="todoLabel"],
+.formInput {
+    display: flex;
+    height: 19px;
+    font-size: 16px;
+    align-items: center;
+} 
+
+h3 {
+    display: flex;
+    align-items: center;
+    font-size: 56px;
+    font-family: Inter;
+    font-weight: 800;
+    height: 68px;
+    margin-bottom: 16px;
+}
+
+.submitBtn {
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.submitBtn input {
+    height: 56px;
+    width: 56px;
+    background-color: #F2F3FF;
+    border: 1px solid #EBEBEB;
+    border-radius: 6px;
+}
+
+#todos {
+    width: 377px;
+}
+
+ul {
+    padding-top: 32px;
+    margin-bottom: 0.5rem;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+}
+
+li {
+    display: flex;
+    height: 24px;
+    align-items: center;
+    cursor: pointer;
+}
+
+#mp {
+    padding: 4rem;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #EBEBEB;
+    border-radius: 12px;
+}
+
+.custom-checkbox {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #DADADA;
+    border-radius: 4px;
+    background: linear-gradient(to bottom, #FCFCFC, #F8F8F8);
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.custom-checkbox:checked::after {
+    content: '✔';
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
