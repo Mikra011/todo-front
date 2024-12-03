@@ -15,6 +15,7 @@ import {
   arrayMove,
 } from '@dnd-kit/sortable';
 import DndTodo from './DndTodo';
+import SpinnerWithCountdown from './SpinnerWithCountDown';
 
 export default function Todos() {
   const { data: todos = [], isLoading, isFetching } = useGetTodosQuery();
@@ -66,7 +67,7 @@ export default function Todos() {
       >
         <ul>
           {isLoading ? (
-            'Tasks are loading...'
+            <SpinnerWithCountdown />
           ) : (
             <SortableContext items={sortedTodos} strategy={verticalListSortingStrategy}>
               {sortedTodos.map((todo) => {

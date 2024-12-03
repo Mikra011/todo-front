@@ -194,7 +194,7 @@ const config = {
   // Whether to use watchman for file crawling
   // watchman: true,
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/$1",
+    '\\.css$': '<rootDir>/__mocks__/styleMock.js',
   },
   transform: {
     "^.+\\.[t|j]sx?$": "babel-jest",

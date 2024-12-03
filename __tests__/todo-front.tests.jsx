@@ -1,12 +1,13 @@
 import React from 'react'
-import 'cross-fetch/polyfill';
-import { render, screen, fireEvent } from '@testing-library/react'
+import 'cross-fetch/polyfill'
+import { render, screen, fireEvent, act } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import Separator from '../src/components/Separator'
 import TodoForm from '../src/components/TodoForm'
-import DndTodo from '../src/components/DndTodo';
+import DndTodo from '../src/components/DndTodo'
 import { Provider } from 'react-redux'
 import { store } from '../src/state/store'
+import SpinnerWithCountdown from '../src/components/SpinnerWithCountDown'
 
 describe('Separator Component', () => {
     test('renders with default styles', () => {
@@ -115,8 +116,38 @@ describe('DndTodo Component', () => {
     })
 
     test('should call onDelete when the delete icon is clicked', () => {
-        const deleteIcon = screen.getByTestId('delete-icon') 
+        const deleteIcon = screen.getByTestId('delete-icon')
         fireEvent.click(deleteIcon)
         expect(mockDelete).toHaveBeenCalledTimes(1)
+    })
+})
+
+jest.useFakeTimers()
+
+describe('SpinnerWithCountdown', () => {
+
+    test('should render spinner and message initially', () => {
+        render(<SpinnerWithCountdown />)
+
+        const spinner = screen.getByTestId('spinner')
+        expect(spinner).toBeInTheDocument()
+
+        const message = screen.getByText(/It is a free deployment, so please be patient.../)
+        expect(message).toBeInTheDocument()
+
+        const countdown = screen.getByText(/60s/)
+        expect(countdown).toBeInTheDocument()
+    })
+
+    test('should count down from 60 to 59 after 1 second', () => {
+        render(<SpinnerWithCountdown />)
+
+        expect(screen.getByText(/60s/)).toBeInTheDocument()
+
+        act(() => {
+            jest.advanceTimersByTime(1000)
+        })
+
+        expect(screen.getByText(/59s/)).toBeInTheDocument()
     })
 })
